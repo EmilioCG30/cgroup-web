@@ -1,0 +1,5 @@
+# C-GROUP México — https://cgroup.com.mx/
+User-agent: *
+Allow: /
+
+Sitemap: https://cgroup.com.mx/sitemap.xml

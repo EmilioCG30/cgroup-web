@@ -1,0 +1,695 @@
+/*
+ * C-GROUP México
+ * Desktop layout is drawn on a 1920px-wide canvas (same as the design file)
+ * and scales proportionally: calc(N * var(--px)) = N design pixels.
+ */
+
+:root {
+  --navy: #0f3051;
+  --ink: #000;
+  --paper: #fff;
+  --mist: #eef2f6;
+  --slate: #5a6472;
+  --font-brand-sans: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --px: calc(min(100vw, 1920px) / 1920);
+  --panel-shadow: 0 24px 48px -24px rgba(15, 48, 81, 0.55);
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Newsreader", Georgia, "Times New Roman", serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+  outline: 2px solid var(--navy);
+  outline-offset: 4px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---------- Header ---------- */
+
+.site-header {
+  border-bottom: 1px solid var(--ink);
+}
+
+.site-header__inner {
+  max-width: 1920px;
+  height: calc(159 * var(--px));
+  margin: 0 auto;
+  padding: calc(36.4 * var(--px)) 0 0 calc(95.5 * var(--px));
+}
+
+.brand {
+  display: inline-block;
+  margin: 0;
+  font-size: inherit;
+  line-height: 0;
+}
+
+.brand a {
+  display: inline-block;
+}
+
+.brand__logo {
+  width: calc(280 * var(--px));
+}
+
+/* ---------- Main navigation ---------- */
+
+.main-nav {
+  position: relative;
+  z-index: 20;
+}
+
+/* Tabs span the width of the photo: first tab on its left edge, last on its right. */
+.main-nav__list {
+  display: flex;
+  justify-content: space-between;
+  column-gap: calc(24 * var(--px));
+  width: calc(1728 * var(--px));
+  height: calc(79 * var(--px));
+  margin: 0 auto;
+  padding-top: calc(10 * var(--px));
+}
+
+.main-nav__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.main-nav__link {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(7 * var(--px));
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: calc(27.3 * var(--px));
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.chevron {
+  flex: none;
+  width: calc(22 * var(--px));
+  height: calc(12 * var(--px));
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  transform: translateY(calc(-5 * var(--px)));
+  transition: transform 0.2s ease;
+}
+
+.main-nav__item.is-open .chevron {
+  transform: translateY(calc(-5 * var(--px))) rotate(180deg);
+}
+
+/* Dropdown: hangs from the bottom of the nav bar, text aligned with the tab. */
+.dropdown {
+  --dd-pad: 20px;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: calc(-1 * var(--dd-pad) - 1px);
+  min-width: max(240px, calc(300 * var(--px)));
+  padding: 8px 0;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  box-shadow: var(--panel-shadow);
+}
+
+.main-nav__item.is-open > .dropdown:not(:empty) {
+  display: block;
+}
+
+@media (min-width: 1100px) {
+  .main-nav__item:last-child > .dropdown {
+    right: calc(-1 * var(--dd-pad) - 1px);
+    left: auto;
+  }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .main-nav__item:hover > .dropdown:not(:empty) {
+    display: block;
+  }
+
+  .main-nav__item:hover .chevron {
+    transform: translateY(calc(-5 * var(--px))) rotate(180deg);
+  }
+}
+
+.dropdown__link {
+  display: block;
+  width: 100%;
+  padding: 9px var(--dd-pad);
+  border: 0;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  font-size: clamp(16px, calc(22 * var(--px)), 22px);
+  line-height: 1.25;
+  text-align: left;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.dropdown__link:hover,
+.dropdown__link:focus-visible {
+  background: var(--mist);
+  color: var(--navy);
+}
+
+.dropdown__link:focus-visible {
+  outline-offset: -2px;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  width: calc(1728 * var(--px));
+  margin: 0 auto;
+  aspect-ratio: 1728 / 693;
+  overflow: hidden;
+}
+
+.hero picture,
+.hero__img {
+  width: 100%;
+  height: 100%;
+}
+
+.hero__img {
+  object-fit: cover;
+  object-position: 50% 0;
+}
+
+/* ---------- Company logos ---------- */
+
+/*
+ * Logo cards, desktop: two rows. --cols = cards per row = half the number of
+ * companies, rounded up (18 companies -> 9). Card size follows from it so both
+ * rows always fit the photo's width (1640 design px, gap = 0.24 × card, the
+ * PDF's proportion), and the second row straddles the photo's bottom edge.
+ */
+.companies {
+  --cols: 9;
+  --card: calc(1640 * var(--px) / (var(--cols) + 0.24 * (var(--cols) - 1)));
+  --gap: calc(0.24 * var(--card));
+  position: relative;
+  margin-top: calc(-1.5 * var(--card) * 173.5 / 180 - var(--gap));
+  padding-bottom: calc(66.5 * var(--px));
+}
+
+.logo-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--gap);
+  max-width: calc(var(--cols) * var(--card) + (var(--cols) - 1) * var(--gap) + 1px);
+  margin: 0 auto;
+}
+
+.logo-grid > li {
+  flex: 0 0 var(--card);
+}
+
+.company {
+  scroll-margin: 24px;
+}
+
+.logo-card {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 180 / 173.5;
+  padding: calc(var(--card) / 18);
+  border: 0;
+  background: var(--paper);
+  font: inherit;
+  cursor: pointer;
+  border-radius: calc(var(--card) / 6);
+  box-shadow: 0 0 calc(12 * var(--px)) rgba(0, 0, 0, 0.72);
+  color: inherit;
+  text-decoration: none;
+}
+
+.logo-card[aria-expanded="true"] {
+  outline: 2px solid var(--navy);
+  outline-offset: 4px;
+}
+
+/*
+ * Card with a one-line note pinned to its bottom edge (TUSA's official-distributor
+ * line), set in Saira ExtraBold Italic to echo the TUSA wordmark. Sizes are in
+ * cqi (1% of the card's width) so the note stays on one line at every card size.
+ */
+.logo-card--noted {
+  position: relative;
+  container-type: inline-size;
+}
+
+.logo-card__note {
+  position: absolute;
+  right: 0;
+  bottom: 7cqi;
+  left: 0;
+  color: #505050;
+  font-family: "Saira", system-ui, sans-serif;
+  font-size: 8px;
+  font-size: 5cqi;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.logo-card img {
+  width: 100%;
+  height: 80%; /* square-ish logos keep breathing room; wide ones are limited by width */
+  object-fit: contain;
+}
+
+.logo-placeholder {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+  border: 1px dashed #c8c8c8;
+  border-radius: calc(16 * var(--px));
+  color: var(--slate);
+  font: 500 max(10px, calc(16 * var(--px))) / 1.2 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  text-align: center;
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+/* ---------- Company description ---------- */
+
+/*
+ * Each company's description sits in the page next to its card, so search
+ * engines, AI agents and screen readers can read it. It stays visually hidden
+ * until opened: a popover on desktop (placed by main.js), a bottom sheet on
+ * phones and tablets.
+ */
+.company-panel:not(.is-open) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  border: 0;
+  white-space: nowrap;
+  animation: none;
+}
+
+.company-panel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  width: min(460px, calc(100vw - 24px));
+  padding: 26px 32px 24px;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  box-shadow: var(--panel-shadow);
+  animation: panel-rise 0.18s ease-out;
+}
+
+.company-panel:focus {
+  outline: none;
+}
+
+.company-panel.is-below {
+  animation-name: panel-drop;
+}
+
+.company-panel__arrow {
+  position: absolute;
+  left: var(--arrow-x, 50%);
+  width: 14px;
+  height: 14px;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.company-panel.is-above .company-panel__arrow {
+  bottom: -8px;
+  border-top: 0;
+  border-left: 0;
+}
+
+.company-panel.is-below .company-panel__arrow {
+  top: -8px;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.company-panel__close {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.company-panel__close svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+}
+
+.company-panel__close:hover {
+  background: var(--mist);
+}
+
+.company-panel.is-pinned .company-panel__close,
+.company-panel.is-sheet .company-panel__close {
+  display: grid;
+  place-items: center;
+}
+
+.company-panel__name {
+  margin: 0;
+  padding-right: 32px;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.company-panel__sector {
+  margin: 6px 0 0;
+  color: var(--slate);
+  font-size: 17px;
+  font-style: italic;
+}
+
+.company-panel__body {
+  margin-top: 16px;
+  font-family: var(--font-brand-sans);
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+}
+
+.company-panel__body p {
+  margin: 0 0 0.85em;
+}
+
+.company-panel__cta {
+  display: inline-block;
+  margin-top: 4px;
+  color: var(--navy);
+  font-size: 18px;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.company-panel__cta:hover {
+  text-decoration-thickness: 2px;
+}
+
+@keyframes panel-rise {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@keyframes panel-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes sheet-in {
+  from {
+    transform: translateY(100%);
+  }
+}
+
+/* ---------- Tablet & mobile ---------- */
+
+@media (max-width: 1099px) {
+  .site-header__inner {
+    height: auto;
+    padding: 20px 5vw;
+  }
+
+  .brand__logo {
+    width: clamp(150px, 40vw, 220px);
+  }
+
+  /* One swipeable row of tabs; the fade on the right shows there is more. */
+  .main-nav__list {
+    justify-content: flex-start;
+    column-gap: 28px;
+    width: auto;
+    height: auto;
+    min-height: 56px;
+    margin: 0;
+    padding: 0 0 0 5vw;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scrollbar-width: none;
+  }
+
+  .main-nav__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .main-nav__list::after {
+    content: "";
+    flex: 0 0 56px;
+  }
+
+  .main-nav::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 56px;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--paper) 85%);
+    pointer-events: none;
+  }
+
+  /* Dropdowns span the screen, positioned against .main-nav. */
+  .main-nav__item {
+    position: static;
+    flex: none;
+  }
+
+  .main-nav__link {
+    position: relative;
+    gap: 7px;
+    min-height: 56px;
+    font-size: 18px;
+  }
+
+  .main-nav__item.is-open .main-nav__link::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    left: 0;
+    height: 2px;
+    background: var(--navy);
+  }
+
+  .chevron {
+    width: 13px;
+    height: 8px;
+    transform: none;
+  }
+
+  .main-nav__item.is-open .chevron {
+    transform: rotate(180deg);
+  }
+
+  .dropdown {
+    --dd-pad: 18px;
+    top: 100%;
+    right: 5vw;
+    left: 5vw;
+    min-width: 0;
+    max-width: 480px;
+    padding: 4px 0;
+  }
+
+  .dropdown__link {
+    padding: 13px var(--dd-pad);
+    font-size: 19px;
+    white-space: normal;
+  }
+
+  .dropdown li + li .dropdown__link {
+    border-top: 1px solid #dde2e8;
+  }
+
+  .hero {
+    width: auto;
+    margin: 0 5vw;
+    aspect-ratio: 16 / 9;
+  }
+
+  .companies {
+    margin-top: -12vw;
+    padding: 0 7vw 48px;
+  }
+
+  .logo-grid {
+    --cols: 6;
+    --gap: 16px;
+    max-width: none;
+  }
+
+  .logo-grid > li {
+    flex-basis: calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols));
+    min-width: 0;
+  }
+
+  .logo-card {
+    padding: 10px;
+    border-radius: 18px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .logo-placeholder {
+    border-radius: 10px;
+    font-size: 12px;
+  }
+
+  /* Phone: description is a bottom sheet. */
+  .company-panel.is-sheet {
+    position: fixed;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: auto;
+    max-height: 78vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 28px max(6vw, calc((100vw - 620px) / 2)) calc(24px + env(safe-area-inset-bottom));
+    border: 0;
+    border-top: 1px solid var(--ink);
+    box-shadow: 0 -20px 40px -24px rgba(15, 48, 81, 0.55);
+    animation: sheet-in 0.26s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .company-panel.is-sheet .company-panel__arrow {
+    display: none;
+  }
+
+  .company-panel.is-sheet .company-panel__name {
+    font-size: 27px;
+  }
+
+  .company-panel.is-sheet .company-panel__cta {
+    display: block;
+    margin-top: 12px;
+    padding: 14px 20px;
+    background: var(--navy);
+    color: var(--paper);
+    text-align: center;
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 559px) {
+  .hero {
+    aspect-ratio: 4 / 3;
+  }
+
+  .companies {
+    margin-top: -14vw;
+    padding-inline: 7vw;
+  }
+
+  .logo-grid {
+    --cols: 3;
+    --gap: 12px;
+  }
+
+  .logo-card {
+    padding: 8px;
+  }
+
+  .logo-placeholder {
+    padding: 4px;
+    font-size: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .company-panel,
+  .company-panel.is-sheet {
+    animation: none;
+  }
+
+  .chevron {
+    transition: none;
+  }
+}
