@@ -364,6 +364,13 @@ button {
   animation: panel-rise 0.18s ease-out;
 }
 
+/* No description yet: the box only needs to fit the name, sector and link. */
+.company-panel:not(.is-sheet):not(:has(.company-panel__body)) {
+  width: max-content;
+  min-width: 240px;
+  max-width: min(460px, calc(100vw - 24px));
+}
+
 .company-panel:focus {
   outline: none;
 }
@@ -455,6 +462,10 @@ button {
   margin: 0 0 0.85em;
 }
 
+.company-panel__body p:last-child {
+  margin-bottom: 0;
+}
+
 .company-panel__cta {
   display: inline-block;
   margin-top: 4px;
@@ -463,6 +474,11 @@ button {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
+}
+
+.company-panel__sector + .company-panel__cta,
+.company-panel__body + .company-panel__cta {
+  margin-top: 18px;
 }
 
 .company-panel__cta:hover {

@@ -4,46 +4,46 @@
 
 Sitio web: https://cgroup.com.mx/
 
-Cada empresa tiene una descripción en la página principal, con enlace directo en la forma https://cgroup.com.mx/#identificador (por ejemplo, https://cgroup.com.mx/#biomedica). Cuando la empresa tiene sitio web propio, el enlace de la lista apunta a ese sitio.
+Cada empresa tiene una ficha en la página principal (nombre, sector y, cuando está disponible, descripción y sitio web), con enlace directo en la forma https://cgroup.com.mx/#identificador (por ejemplo, https://cgroup.com.mx/#biomedica). Cuando la empresa tiene sitio web propio, el enlace de la lista apunta a ese sitio.
 
 ## Ciencia y Salud
 
-- [Biomédica](https://www.blpbiomedica.com/nosotros/): sitio web de la empresa. Descripción: https://cgroup.com.mx/#biomedica
-- [DerMaia](https://cgroup.com.mx/#dermaia): descripción en el sitio de C-GROUP; sitio web propio no disponible.
-- [Atria Scientific](https://www.atriascientific.mx/): sitio web de la empresa. Descripción: https://cgroup.com.mx/#atria
+- [Atria Scientific](https://www.atriascientific.mx/): sitio web de la empresa.
+- [Biomédica](https://www.blpbiomedica.com/nosotros/): sitio web de la empresa.
+- [DerMaia](https://cgroup.com.mx/#dermaia): sitio web propio no disponible.
 
 ## Manufactura
 
-- [CargoTech](https://www.cargotech.com.mx): diseña y fabrica carrocerías de alta tecnología para transporte de carga, como cajas secas y refrigeradas y soluciones a la medida. Ficha en C-GROUP: https://cgroup.com.mx/#cargotech
 - [Altecmi](https://cgroup.com.mx/#altecmi): diseña y fabrica matrices y piezas industriales mediante maquinado y electroerosión por hilo, de acuerdo con planos o requerimientos del cliente. Sitio web propio no disponible.
+- [CargoTech](https://www.cargotech.com.mx): diseña y fabrica carrocerías de alta tecnología para transporte de carga, como cajas secas y refrigeradas y soluciones a la medida. Ficha en C-GROUP: https://cgroup.com.mx/#cargotech
 
 ## Inmobiliaria
 
-- [Caudimar Real Estate](https://cgroup.com.mx/#caudimar): descripción en el sitio de C-GROUP; sitio web propio no disponible.
-- [Flipper Real Estate](https://cgroup.com.mx/#flipper): descripción en el sitio de C-GROUP; sitio web propio no disponible.
-- [CauFi Real Estate](https://cgroup.com.mx/#caufi): descripción en el sitio de C-GROUP; sitio web propio no disponible.
+- [Caudimar Real Estate](https://cgroup.com.mx/#caudimar): sitio web propio no disponible.
+- [CauFi Real Estate](https://cgroup.com.mx/#caufi): sitio web propio no disponible.
+- [Flipper Real Estate](https://cgroup.com.mx/#flipper): sitio web propio no disponible.
 
 ## Construcción
 
-- [Grupo CONSA](https://cgroup.com.mx/#consa): descripción en el sitio de C-GROUP; sitio web propio no disponible.
-- [CAOS](https://cgroup.com.mx/#caos): descripción en el sitio de C-GROUP; sitio web propio no disponible.
+- [CAOS](https://cgroup.com.mx/#caos): sitio web propio no disponible.
+- [Grupo CONSA](https://cgroup.com.mx/#consa): sitio web propio no disponible.
 
 ## Comunicación
 
-- [Monkey Writers](https://monkeywriters.net): sitio web de la empresa. Descripción: https://cgroup.com.mx/#monkey-writers
+- [Monkey Writers](https://monkeywriters.net): sitio web de la empresa.
 
 ## Turismo
 
+- [Kiik-Ha Dive](https://kiikha.com): sitio web de la empresa.
+- [Promotora Turística Vitivinícola](https://cgroup.com.mx/#promotora-vitivinicola): sitio web propio no disponible.
 - [TUSA](https://cgroup.com.mx/#tusa) (distribuidores oficiales en México): distribuidor oficial de equipos de buceo y esnórquel, máscaras, aletas, reguladores, chalecos, compensadores y accesorios. Sitio web propio no disponible.
-- [Kiik-Ha Dive](https://kiikha.com): sitio web de la empresa. Descripción: https://cgroup.com.mx/#kiik-ha
-- [Promotora Turística Vitivinícola](https://cgroup.com.mx/#promotora-vitivinicola): descripción en el sitio de C-GROUP; sitio web propio no disponible.
 
 ## Consultoría
 
-- [Administree](https://cgroup.com.mx/#administree): descripción en el sitio de C-GROUP; sitio web propio no disponible.
-- [Dream Crafter](https://cgroup.com.mx/#dream-crafter): descripción en el sitio de C-GROUP; sitio web propio no disponible.
-- [Capital Crafter](https://cgroup.com.mx/#capital-crafter): descripción en el sitio de C-GROUP; sitio web propio no disponible.
+- [Administree](https://cgroup.com.mx/#administree): sitio web propio no disponible.
+- [Capital Crafter](https://cgroup.com.mx/#capital-crafter): sitio web propio no disponible.
+- [Dream Crafter](https://cgroup.com.mx/#dream-crafter): sitio web propio no disponible.
 
 ## Comercializadora
 
-- [UMI Trading](https://cgroup.com.mx/#umi): descripción en el sitio de C-GROUP; sitio web propio no disponible.
+- [UMI Trading](https://cgroup.com.mx/#umi): sitio web propio no disponible.
