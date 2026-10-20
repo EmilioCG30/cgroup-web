@@ -78,6 +78,12 @@
           },
           {
             "@type": "Organization",
+            "@id": "https://cgroup.com.mx/#endo-perio",
+            "name": "Endo Perio Dental Center",
+            "logo": "https://cgroup.com.mx/assets/logos/endo-perio-color.png"
+          },
+          {
+            "@type": "Organization",
             "@id": "https://cgroup.com.mx/#cargotech",
             "name": "CargoTech",
             "description": "Diseña y fabrica carrocerías de alta tecnología para transporte de carga, como cajas secas y refrigeradas y soluciones a la medida.",
@@ -142,8 +148,15 @@
           },
           {
             "@type": "Organization",
-            "@id": "https://cgroup.com.mx/#promotora-vitivinicola",
-            "name": "Promotora Turística Vitivinícola"
+            "@id": "https://cgroup.com.mx/#la-cava-del-cien",
+            "name": "La Cava del Cien",
+            "logo": "https://cgroup.com.mx/assets/logos/la-cava-del-cien-color.png"
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://cgroup.com.mx/#la-100",
+            "name": "La 100",
+            "logo": "https://cgroup.com.mx/assets/logos/la-100-color.png"
           },
           {
             "@type": "Organization",
@@ -153,12 +166,14 @@
           {
             "@type": "Organization",
             "@id": "https://cgroup.com.mx/#dream-crafter",
-            "name": "Dream Crafter"
+            "name": "Dream Crafter",
+            "logo": "https://cgroup.com.mx/assets/logos/dream-crafter-color.png"
           },
           {
             "@type": "Organization",
             "@id": "https://cgroup.com.mx/#capital-crafter",
-            "name": "Capital Crafter"
+            "name": "Capital Crafter",
+            "logo": "https://cgroup.com.mx/assets/logos/capital-crafter-color.png"
           },
           {
             "@type": "Organization",
@@ -202,9 +217,10 @@
             <svg class="chevron" viewBox="0 0 22 12" aria-hidden="true"><path d="M1 1l10 10L21 1"/></svg>
           </button>
           <ul class="dropdown" id="sector-ciencia-salud">
+            <li><a class="dropdown__link" href="#atria">Atria Scientific</a></li>
             <li><a class="dropdown__link" href="#biomedica">Biomédica</a></li>
             <li><a class="dropdown__link" href="#dermaia">DerMaia</a></li>
-            <li><a class="dropdown__link" href="#atria">Atria Scientific</a></li>
+            <li><a class="dropdown__link" href="#endo-perio">Endo Perio Dental Center</a></li>
           </ul>
         </li>
         <li class="main-nav__item">
@@ -213,8 +229,8 @@
             <svg class="chevron" viewBox="0 0 22 12" aria-hidden="true"><path d="M1 1l10 10L21 1"/></svg>
           </button>
           <ul class="dropdown" id="sector-manufactura">
-            <li><a class="dropdown__link" href="#cargotech">CargoTech</a></li>
             <li><a class="dropdown__link" href="#altecmi">Altecmi</a></li>
+            <li><a class="dropdown__link" href="#cargotech">CargoTech</a></li>
           </ul>
         </li>
         <li class="main-nav__item">
@@ -224,8 +240,8 @@
           </button>
           <ul class="dropdown" id="sector-inmobiliaria">
             <li><a class="dropdown__link" href="#caudimar">Caudimar Real Estate</a></li>
-            <li><a class="dropdown__link" href="#flipper">Flipper Real Estate</a></li>
             <li><a class="dropdown__link" href="#caufi">CauFi Real Estate</a></li>
+            <li><a class="dropdown__link" href="#flipper">Flipper Real Estate</a></li>
           </ul>
         </li>
         <li class="main-nav__item">
@@ -234,8 +250,8 @@
             <svg class="chevron" viewBox="0 0 22 12" aria-hidden="true"><path d="M1 1l10 10L21 1"/></svg>
           </button>
           <ul class="dropdown" id="sector-construccion">
-            <li><a class="dropdown__link" href="#consa">Grupo CONSA</a></li>
             <li><a class="dropdown__link" href="#caos">CAOS</a></li>
+            <li><a class="dropdown__link" href="#consa">Grupo CONSA</a></li>
           </ul>
         </li>
         <li class="main-nav__item">
@@ -253,9 +269,10 @@
             <svg class="chevron" viewBox="0 0 22 12" aria-hidden="true"><path d="M1 1l10 10L21 1"/></svg>
           </button>
           <ul class="dropdown" id="sector-turismo">
-            <li><a class="dropdown__link" href="#tusa">TUSA</a></li>
             <li><a class="dropdown__link" href="#kiik-ha">Kiik-Ha Dive</a></li>
-            <li><a class="dropdown__link" href="#promotora-vitivinicola">Promotora Turística Vitivinícola</a></li>
+            <li><a class="dropdown__link" href="#la-100">La 100</a></li>
+            <li><a class="dropdown__link" href="#la-cava-del-cien">La Cava del Cien</a></li>
+            <li><a class="dropdown__link" href="#tusa">TUSA</a></li>
           </ul>
         </li>
         <li class="main-nav__item">
@@ -265,8 +282,8 @@
           </button>
           <ul class="dropdown" id="sector-consultoria">
             <li><a class="dropdown__link" href="#administree">Administree</a></li>
-            <li><a class="dropdown__link" href="#dream-crafter">Dream Crafter</a></li>
             <li><a class="dropdown__link" href="#capital-crafter">Capital Crafter</a></li>
+            <li><a class="dropdown__link" href="#dream-crafter">Dream Crafter</a></li>
           </ul>
         </li>
         <li class="main-nav__item">
@@ -293,13 +310,15 @@
       <h2 class="visually-hidden" id="companies-title">Empresas</h2>
       <!--
         One block per company, in display order (two rows on desktop: set --cols in styles.css).
-        To edit a company: change its name, sector and the description <p> paragraph(s).
+        To edit a company: change its name and sector. Description: add
+              <div class="company-panel__body"><p>…</p></div>
+        right after the sector line (leave it out until the text is ready).
         Logo: replace <span class="logo-placeholder">…</span> with
               <img src="/assets/logos/FILE.png" alt="COMPANY NAME" width="600" height="…" decoding="async">
         Website: companies with a site use <a class="logo-card" href="…">
                  and a "Visitar sitio web" link; companies without one use
                  <button class="logo-card">. Copy a block that matches.
-        Remember to keep the dropdown links in the menu above in sync.
+        Remember to keep the dropdown links in the menu above in sync (alphabetical order).
       -->
       <ul class="logo-grid">
       <!-- Biomédica -->
@@ -310,10 +329,6 @@
         <div class="company-panel" id="biomedica-info" tabindex="-1">
           <h3 class="company-panel__name">Biomédica</h3>
           <p class="company-panel__sector">Ciencia y Salud</p>
-          <div class="company-panel__body">
-            <p>Párrafo 1 de la descripción de Biomédica (pendiente).</p>
-            <p>Párrafo 2 de la descripción de Biomédica (pendiente).</p>
-          </div>
           <a class="company-panel__cta" href="https://www.blpbiomedica.com/nosotros/" target="_blank" rel="noopener">Visitar sitio web<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a>
         </div>
       </li>
@@ -326,10 +341,6 @@
         <div class="company-panel" id="dermaia-info" tabindex="-1">
           <h3 class="company-panel__name">DerMaia</h3>
           <p class="company-panel__sector">Ciencia y Salud</p>
-          <div class="company-panel__body">
-            <p>Párrafo 1 de la descripción de DerMaia (pendiente).</p>
-            <p>Párrafo 2 de la descripción de DerMaia (pendiente).</p>
-          </div>
         </div>
       </li>
 
@@ -341,11 +352,18 @@
         <div class="company-panel" id="atria-info" tabindex="-1">
           <h3 class="company-panel__name">Atria Scientific</h3>
           <p class="company-panel__sector">Ciencia y Salud</p>
-          <div class="company-panel__body">
-            <p>Párrafo 1 de la descripción de Atria Scientific (pendiente).</p>
-            <p>Párrafo 2 de la descripción de Atria Scientific (pendiente).</p>
-          </div>
           <a class="company-panel__cta" href="https://www.atriascientific.mx/" target="_blank" rel="noopener">Visitar sitio web<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a>
+        </div>
+      </li>
+
+      <!-- Endo Perio Dental Center -->
+      <li class="company" id="endo-perio">
+        <button class="logo-card" type="button" aria-describedby="endo-perio-info" aria-controls="endo-perio-info" aria-expanded="false">
+          <img src="/assets/logos/endo-perio.png" alt="Endo Perio Dental Center" width="600" height="173" decoding="async">
+        </button>
+        <div class="company-panel" id="endo-perio-info" tabindex="-1">
+          <h3 class="company-panel__name">Endo Perio Dental Center</h3>
+          <p class="company-panel__sector">Ciencia y Salud</p>
         </div>
       </li>
 
@@ -386,10 +404,6 @@
         <div class="company-panel" id="caudimar-info" tabindex="-1">
           <h3 class="company-panel__name">Caudimar Real Estate</h3>
           <p class="company-panel__sector">Inmobiliaria</p>
-          <div class="company-panel__body">
-            <p>Párrafo 1 de la descripción de Caudimar Real Estate (pendiente).</p>
-            <p>Párrafo 2 de la descripción de Caudimar Real Estate (pendiente).</p>
-          </div>
         </div>
       </li>
 
@@ -401,10 +415,6 @@
         <div class="company-panel" id="flipper-info" tabindex="-1">
           <h3 class="company-panel__name">Flipper Real Estate</h3>
           <p class="company-panel__sector">Inmobiliaria</p>
-          <div class="company-panel__body">
-            <p>Párrafo 1 de la descripción de Flipper Real Estate (pendiente).</p>
-            <p>Párrafo 2 de la descripción de Flipper Real Estate (pendiente).</p>
-          </div>
         </div>
       </li>
 
@@ -416,10 +426,6 @@
         <div class="company-panel" id="caufi-info" tabindex="-1">
           <h3 class="company-panel__name">CauFi Real Estate</h3>
           <p class="company-panel__sector">Inmobiliaria</p>
-          <div class="company-panel__body">
-            <p>Párrafo 1 de la descripción de CauFi Real Estate (pendiente).</p>
-            <p>Párrafo 2 de la descripción de CauFi Real Estate (pendiente).</p>
-          </div>
         </div>
       </li>
 
@@ -431,10 +437,6 @@
         <div class="company-panel" id="consa-info" tabindex="-1">
           <h3 class="company-panel__name">Grupo CONSA</h3>
           <p class="company-panel__sector">Construcción</p>
-          <div class="company-panel__body">
-            <p>Párrafo 1 de la descripción de Grupo CONSA (pendiente).</p>
-            <p>Párrafo 2 de la descripción de Grupo CONSA (pendiente).</p>
-          </div>
         </div>
       </li>
 
@@ -446,10 +448,6 @@
         <div class="company-panel" id="caos-info" tabindex="-1">
           <h3 class="company-panel__name">CAOS</h3>
           <p class="company-panel__sector">Construcción</p>
-          <div class="company-panel__body">
-            <p>Párrafo 1 de la descripción de CAOS (pendiente).</p>
-            <p>Párrafo 2 de la descripción de CAOS (pendiente).</p>
-          </div>
         </div>
       </li>
 
@@ -461,10 +459,6 @@
         <div class="company-panel" id="monkey-writers-info" tabindex="-1">
           <h3 class="company-panel__name">Monkey Writers</h3>
           <p class="company-panel__sector">Comunicación</p>
-          <div class="company-panel__body">
-            <p>Párrafo 1 de la descripción de Monkey Writers (pendiente).</p>
-            <p>Párrafo 2 de la descripción de Monkey Writers (pendiente).</p>
-          </div>
           <a class="company-panel__cta" href="https://monkeywriters.net" target="_blank" rel="noopener">Visitar sitio web<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a>
         </div>
       </li>
@@ -492,26 +486,29 @@
         <div class="company-panel" id="kiik-ha-info" tabindex="-1">
           <h3 class="company-panel__name">Kiik-Ha Dive</h3>
           <p class="company-panel__sector">Turismo</p>
-          <div class="company-panel__body">
-            <p>Párrafo 1 de la descripción de Kiik-Ha Dive (pendiente).</p>
-            <p>Párrafo 2 de la descripción de Kiik-Ha Dive (pendiente).</p>
-          </div>
           <a class="company-panel__cta" href="https://kiikha.com" target="_blank" rel="noopener">Visitar sitio web<span class="visually-hidden"> (se abre en una pestaña nueva)</span></a>
         </div>
       </li>
 
-      <!-- Promotora Turística Vitivinícola -->
-      <li class="company" id="promotora-vitivinicola">
-        <button class="logo-card" type="button" aria-describedby="promotora-vitivinicola-info" aria-controls="promotora-vitivinicola-info" aria-expanded="false">
-          <span class="logo-placeholder">Promotora Turística Vitivinícola</span>
+      <!-- La Cava del Cien -->
+      <li class="company" id="la-cava-del-cien">
+        <button class="logo-card" type="button" aria-describedby="la-cava-del-cien-info" aria-controls="la-cava-del-cien-info" aria-expanded="false">
+          <img src="/assets/logos/la-cava-del-cien.png" alt="La Cava del Cien" width="600" height="224" decoding="async">
         </button>
-        <div class="company-panel" id="promotora-vitivinicola-info" tabindex="-1">
-          <h3 class="company-panel__name">Promotora Turística Vitivinícola</h3>
+        <div class="company-panel" id="la-cava-del-cien-info" tabindex="-1">
+          <h3 class="company-panel__name">La Cava del Cien</h3>
           <p class="company-panel__sector">Turismo</p>
-          <div class="company-panel__body">
-            <p>Párrafo 1 de la descripción de Promotora Turística Vitivinícola (pendiente).</p>
-            <p>Párrafo 2 de la descripción de Promotora Turística Vitivinícola (pendiente).</p>
-          </div>
+        </div>
+      </li>
+
+      <!-- La 100 -->
+      <li class="company" id="la-100">
+        <button class="logo-card" type="button" aria-describedby="la-100-info" aria-controls="la-100-info" aria-expanded="false">
+          <img src="/assets/logos/la-100.png" alt="La 100" width="600" height="211" decoding="async">
+        </button>
+        <div class="company-panel" id="la-100-info" tabindex="-1">
+          <h3 class="company-panel__name">La 100</h3>
+          <p class="company-panel__sector">Turismo</p>
         </div>
       </li>
 
@@ -523,40 +520,28 @@
         <div class="company-panel" id="administree-info" tabindex="-1">
           <h3 class="company-panel__name">Administree</h3>
           <p class="company-panel__sector">Consultoría</p>
-          <div class="company-panel__body">
-            <p>Párrafo 1 de la descripción de Administree (pendiente).</p>
-            <p>Párrafo 2 de la descripción de Administree (pendiente).</p>
-          </div>
         </div>
       </li>
 
       <!-- Dream Crafter -->
       <li class="company" id="dream-crafter">
         <button class="logo-card" type="button" aria-describedby="dream-crafter-info" aria-controls="dream-crafter-info" aria-expanded="false">
-          <span class="logo-placeholder">Dream Crafter</span>
+          <img src="/assets/logos/dream-crafter.png" alt="Dream Crafter" width="600" height="185" decoding="async">
         </button>
         <div class="company-panel" id="dream-crafter-info" tabindex="-1">
           <h3 class="company-panel__name">Dream Crafter</h3>
           <p class="company-panel__sector">Consultoría</p>
-          <div class="company-panel__body">
-            <p>Párrafo 1 de la descripción de Dream Crafter (pendiente).</p>
-            <p>Párrafo 2 de la descripción de Dream Crafter (pendiente).</p>
-          </div>
         </div>
       </li>
 
       <!-- Capital Crafter -->
       <li class="company" id="capital-crafter">
         <button class="logo-card" type="button" aria-describedby="capital-crafter-info" aria-controls="capital-crafter-info" aria-expanded="false">
-          <span class="logo-placeholder">Capital Crafter</span>
+          <img src="/assets/logos/capital-crafter.png" alt="Capital Crafter" width="600" height="215" decoding="async">
         </button>
         <div class="company-panel" id="capital-crafter-info" tabindex="-1">
           <h3 class="company-panel__name">Capital Crafter</h3>
           <p class="company-panel__sector">Consultoría</p>
-          <div class="company-panel__body">
-            <p>Párrafo 1 de la descripción de Capital Crafter (pendiente).</p>
-            <p>Párrafo 2 de la descripción de Capital Crafter (pendiente).</p>
-          </div>
         </div>
       </li>
 
@@ -568,10 +553,6 @@
         <div class="company-panel" id="umi-info" tabindex="-1">
           <h3 class="company-panel__name">UMI Trading</h3>
           <p class="company-panel__sector">Comercializadora</p>
-          <div class="company-panel__body">
-            <p>Párrafo 1 de la descripción de UMI Trading (pendiente).</p>
-            <p>Párrafo 2 de la descripción de UMI Trading (pendiente).</p>
-          </div>
         </div>
       </li>
       </ul>

@@ -232,12 +232,12 @@ button {
 
 /*
  * Logo cards, desktop: two rows. --cols = cards per row = half the number of
- * companies, rounded up (18 companies -> 9). Card size follows from it so both
+ * companies, rounded up (20 companies -> 10). Card size follows from it so both
  * rows always fit the photo's width (1640 design px, gap = 0.24 × card, the
  * PDF's proportion), and the second row straddles the photo's bottom edge.
  */
 .companies {
-  --cols: 9;
+  --cols: 10;
   --card: calc(1640 * var(--px) / (var(--cols) + 0.24 * (var(--cols) - 1)));
   --gap: calc(0.24 * var(--card));
   position: relative;
@@ -364,6 +364,13 @@ button {
   animation: panel-rise 0.18s ease-out;
 }
 
+/* No description yet: the box only needs to fit the name, sector and link. */
+.company-panel:not(.is-sheet):not(:has(.company-panel__body)) {
+  width: max-content;
+  min-width: 240px;
+  max-width: min(460px, calc(100vw - 24px));
+}
+
 .company-panel:focus {
   outline: none;
 }
@@ -455,6 +462,10 @@ button {
   margin: 0 0 0.85em;
 }
 
+.company-panel__body p:last-child {
+  margin-bottom: 0;
+}
+
 .company-panel__cta {
   display: inline-block;
   margin-top: 4px;
@@ -463,6 +474,11 @@ button {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
+}
+
+.company-panel__sector + .company-panel__cta,
+.company-panel__body + .company-panel__cta {
+  margin-top: 18px;
 }
 
 .company-panel__cta:hover {
@@ -600,7 +616,7 @@ button {
   }
 
   .logo-grid {
-    --cols: 6;
+    --cols: 5;
     --gap: 16px;
     max-width: none;
   }
